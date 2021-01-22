@@ -33,7 +33,7 @@ public class Compte {
 	/**
 	 * @param solde the solde to set
 	 */
-	private void setSolde(double solde) {
+	public void setSolde(double solde) {
 		this.solde = solde;
 	}
 
@@ -47,7 +47,7 @@ public class Compte {
 	/**
 	 * @param numero the numero to set
 	 */
-	private void setNumero(int numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
