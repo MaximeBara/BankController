@@ -1,11 +1,5 @@
 package fr.m2i.bank.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import fr.m2i.bank.exception.BanqueException;
-
 public class Client {
 
 	public static final int MAX_COMPTES = 5;
@@ -14,7 +8,6 @@ public class Client {
 	private int age;
 	private int numero;
 	private int nbComptes = 0;
-	private List<Compte> comptes = new ArrayList<Compte>(MAX_COMPTES);
 
 	public Client() {
 	}
@@ -24,24 +17,6 @@ public class Client {
 		this.nom = unNom;
 		this.prenom = unPrenom;
 		this.age = unAge;
-	}
-
-	public void ajouterCompte(Compte unCompte) throws BanqueException {
-		if (nbComptes < MAX_COMPTES) {
-			this.comptes.add(unCompte);
-			nbComptes++;
-		} else
-			throw new BanqueException("Impossible d'ouvrir un compte supplémentaire.");
-	}
-
-	public Compte getCompte(int numeroCompte) {
-		for (Compte compte : comptes) {
-			if (compte != null && compte.getNumero() == numeroCompte) {
-				return compte;
-			}
-		}
-		System.out.println("Le compte avec le numéro " + numeroCompte + " n'existe pas dans notre base de données.");
-		return null;
 	}
 
 	/**
@@ -98,20 +73,6 @@ public class Client {
 	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
-	}
-
-	/**
-	 * @return the comptes
-	 */
-	public Compte[] getComptes() {
-		return (Compte[]) this.comptes.toArray();
-	}
-
-	/**
-	 * @param comptes the comptes to set
-	 */
-	public void setComptes(Compte[] comptes) {
-		this.comptes = Arrays.asList(comptes);
 	}
 
 	public int getNbComptes() {
